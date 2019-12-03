@@ -1,5 +1,7 @@
-import { parseIntCodeProgram, parseProgramString } from './part1';
+import { parseIntCodeProgram, parseProgramString } from './programLogic';
 import { part1Program } from './data';
+import { performance } from 'perf_hooks';
+import chalk = require('chalk');
 
 function findNounAndVerb(): [number, number] {
     const target = 19690720;
@@ -15,7 +17,11 @@ function findNounAndVerb(): [number, number] {
     throw new Error('No solutions were found?!?!?');
 }
 
+const t0 = performance.now();
 const [noun, verb] = findNounAndVerb();
+const t1 = performance.now();
 
-console.log(`Noun is ${noun} and verb is ${verb}`);
-console.log(`Answer is ${noun * 100 + verb}`);
+console.log(`Solution found in ${((t1 - t0) / 1000).toFixed(2)}s`);
+
+console.log(`Noun is ${chalk.underline(noun)} and verb is ${chalk.underline(verb)}`);
+console.log(`Answer to problem (${chalk.italic('noun * 100 + verb')}) is ${chalk.underline(noun * 100 + verb)}`);
