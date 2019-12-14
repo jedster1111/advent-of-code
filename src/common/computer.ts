@@ -1,5 +1,6 @@
-import sum from '../common/sum';
-import multiply from '../common/multiply';
+import sum from './sum';
+import multiply from './multiply';
+import { stringToInt } from './stringToInt';
 type OperationTypes = 'add' | 'multiply' | 'end';
 
 const getOpcodePos = (currentProgramIndex: number): number => currentProgramIndex * 4;
@@ -33,7 +34,7 @@ function getOpcodeInfo(
 }
 
 export function parseProgramString(programString: string): number[] {
-    return programString.split(',').map(intCode => parseInt(intCode, 10));
+    return programString.split(',').map(stringToInt);
 }
 
 export function parseIntCodeProgram(program: number[]): number {

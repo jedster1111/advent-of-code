@@ -1,8 +1,14 @@
 import chalk = require('chalk');
-import { doDigitsAlwaysIncrease, isSixDigits, findValidPasswords, areThereOnlyTwoAdjacentDigits } from './logic';
+import {
+    doDigitsAlwaysIncrease,
+    isSixDigits,
+    findValidPasswords,
+    areThereOnlyTwoAdjacentDigits,
+    digitsFromNumber,
+} from './logic';
 
 function isValidPassword(password: number): boolean {
-    const digits = [...password.toString()].map(digit => parseInt(digit, 10));
+    const digits = digitsFromNumber(password);
     const digitsAlwaysIncrease = doDigitsAlwaysIncrease(digits);
     const digitsAreAdjacent = areThereOnlyTwoAdjacentDigits(digits);
     const lengthIsSixDigits = isSixDigits(digits);

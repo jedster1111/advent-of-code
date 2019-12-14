@@ -1,3 +1,9 @@
+import { stringToInt } from '../common/stringToInt';
+
+export function digitsFromNumber(number: number): number[] {
+    return [...number.toString()].map(stringToInt);
+}
+
 export function doDigitsAlwaysIncrease(digits: number[]): boolean {
     let last: number | undefined = undefined;
     for (const digit of digits) {

@@ -1,4 +1,4 @@
-import { parseIntCodeProgram, parseProgramString } from './programLogic';
+import { parseIntCodeProgram, parseProgramString } from '../common/computer';
 import { part1Program } from './data';
 import { performance } from 'perf_hooks';
 import chalk = require('chalk');

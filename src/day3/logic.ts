@@ -1,4 +1,5 @@
 import { VectorPosition, createVector, Vector } from 'simple-vectors';
+import { stringToInt } from '../common/stringToInt';
 
 type IntersectionInfo = {
     position: Vector;
@@ -31,7 +32,7 @@ function getInstructions(instructions: string): string[] {
 function parseInstruction(instruction: string): Vector[] {
     const direction = instruction[0];
     if (!isDirection(direction)) throw new Error(`'${direction}' isn't one of 'U', 'R', 'D', 'L'`);
-    const numberOfSteps = parseInt(instruction.slice(1));
+    const numberOfSteps = stringToInt(instruction.slice(1));
     if (isNaN(numberOfSteps))
         throw new Error(`Number of steps was not a number. Expected a number, recieved: ${instruction.slice(1)}`);
 
